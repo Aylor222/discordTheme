@@ -1,4 +1,3 @@
-
 .app-19_DXt,
 .app-2rEoOp,
 .scroller-2FKFPG,
@@ -7,11 +6,19 @@
 .theme-dark .layers-3iHuyZ,
 .container-2lgZY8,
 .flex-1xMQg5,
+.header-39GIC8,
 .channels-Ie2l6A,
 .chat-3bRxxu form,
 .content-yTz4x3,
 .container-1r6BKw,
 .flex-spacer,
+.searchBar-3dMhjb,
+.da-searchBar,
+.da-searchResultsWrap,
+.searchResult-3pzFAB,
+.searchHeader-1l-wpR,
+.topSectionPlaying-1J5E4n,
+.theme-dark .wrapper-3UweLa,
 .content-3at_AU,
 .theme-dark .members-1998pB,
 .theme-dark .messagesWrapper-3lZDfY,
@@ -19,6 +26,7 @@
 .theme-dark .memberOnline-1CIh-0 .content-OzHfo4,
 .theme-dark .memberOnline-1CIh-0:hover .content-OzHfo4 {
     background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 .theme-dark .layer-3QrUeG,
@@ -29,16 +37,20 @@
 .container-3gCOGc,
 .container-PNkimc,
 .panels-j1Uci_,
+.body-3ND3kc,
+.circleIconButton-jET_ig,
+#bd-pub-button,
+#bda-qem,
+.bda-dark #bda-qem button,
+.childWrapper-anI2G9,
 .da-privateChannels,
-.theme-dark .headerNormal-T_seeN,
-.theme-dark .body-3iLsc4,
-.theme-dark .footer-1fjuF6,
 .theme-dark .card-7JP0BX {
     background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 
 .chat-3bRxxu,
+.category-2U57w6,
 .sidebar-2K8pFh,
 .header-2BwW8b,
 .theme-dark .activityFeed-28jde9,
@@ -53,14 +65,20 @@
 
 .guildsWrapper-5TJh6A,
 .markup-2BOw-j code,
+.emojiPicker-3m1S-j,
+#bda-qem-twitch-container,
+#bda-qem-favourite-container,
 .channels-Ie2l6A,
 .theme-dark .wrapper-1Rf91z {
     background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
+.theme-dark .headerNormal-T_seeN,
+.theme-dark .body-3iLsc4,
+.theme-dark .footer-1fjuF6,
 .typeWindows-1za-n7,
-.theme-dark .topSectionNormal-2-vo2m,
-.theme-dark .body-3ND3kc {
+.contextMenu-HLZMGh,
+.theme-dark .topSectionNormal-2-vo2m {
     background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
@@ -80,14 +98,17 @@
 }
 
 
+
 /*
 	ScrollBar
 */
-.theme-dark .messagesWrapper-3lZDfY .da-scrollerWrap ::-webkit-scrollbar-track-piece {
+.theme-dark .messagesWrapper-3lZDfY .da-scrollerWrap ::-webkit-scrollbar-track-piece  {
 	background-color: transparent !important;
 }
 
-.da-scrollerWrap .da-scroller::-webkit-scrollbar-thumb, .da-scrollerWrap .da-scroller::-webkit-scrollbar-track-piece {
+.bda-dark #bda-qem-favourite-container .scroller::-webkit-scrollbar, .bda-dark #bda-qem-favourite-container .scroller::-webkit-scrollbar-track, .bda-dark #bda-qem-favourite-container .scroller::-webkit-scrollbar-track-piece, .bda-dark #bda-qem-twitch-container .scroller::-webkit-scrollbar, .bda-dark #bda-qem-twitch-container .scroller::-webkit-scrollbar-track, .bda-dark #bda-qem-twitch-container .scroller::-webkit-scrollbar-track-piece, .bda-dark .emojiPicker-3m1S-j .scroller-3vODG7::-webkit-scrollbar, .bda-dark .emojiPicker-3m1S-j .scroller-3vODG7::-webkit-scrollbar-track, .bda-dark .emojiPicker-3m1S-j .scroller-3vODG7::-webkit-scrollbar-track-piece,
+.da-scrollerWrap .da-scroller::-webkit-scrollbar-thumb,
+.da-scrollerWrap .da-scroller::-webkit-scrollbar-track-piece {
 	background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
