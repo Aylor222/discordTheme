@@ -64,11 +64,14 @@ class RandomBackgroundCoreUpdater {
         var that = this;
 
         return new Promise(function(resolve, reject) {
-            that.fs.unlink(`${that.pluginFileName}.bak`, (err) => {
-                if (err)
-                    reject(err);
-                else
-                    resolve();
+            that.fs.access(`${that.pluginFileName}.bak`, that.fs.constants.R_OK, (err) => {
+                if (!err)
+                    that.fs.unlink(`${that.pluginFileName}.bak`, (err) => {
+                        if (err)
+                            reject(err);
+                        else
+                            resolve();
+                    });
             });
         });
     }
