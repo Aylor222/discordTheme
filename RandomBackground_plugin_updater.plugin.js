@@ -1,6 +1,6 @@
-//META{"name":"RandomBackgroundCore"}*//
+//META{"name":"RandomBackgroundCoreUpdater"}*//
 
-class RandomBackgroundCore {
+class RandomBackgroundCoreUpdater {
 
     constructor(){
         this.fs = require('fs');
@@ -58,6 +58,22 @@ class RandomBackgroundCore {
     }
 
     /**
+     * Delete the backup file.
+     */
+    deleteBackup() {
+        var that = this;
+
+        return new Promise(function(resolve, reject) {
+            that.fs.unlink(`${that.pluginFileName}.bak`, (err) => {
+                if (err)
+                    reject(err);
+                else
+                    resolve();
+            });
+        });
+    }
+
+    /**
      * Update the plugin
      * 1 - Create a backup
      * 2 - Download the new file
@@ -65,12 +81,17 @@ class RandomBackgroundCore {
      * 4 - Delete the backup file
      */
     doUpdate() {
-        this.createBackup().then(()=> {
+        var that = this;
+        this.createBackup().then(() => {
             const file = this.fs.createWriteStream(this.pluginFileName);
             const request = this.https.get(this.pluginURL, function(res) {
                 res.pipe(file);
                 file.on('finish', function(){ 
-                    console.log("Update complete");
+                    that.deleteBackup().then(() => {
+                        console.log("Update complete");
+                    }).catch((err) => {
+                        console.log(err);
+                    });
                 });
             });
         }).catch((err) => {
