@@ -34,9 +34,9 @@ class customBackground {
         });
     }
 
-    getName() {return "Custom Background";} 
+    getName() {return "CustomBackground";} 
     getDescription() {return "Random Background Image";} 
-    getVersion() {return "2.0.0";} 
+    getVersion() {return "1.0.0";} 
     getAuthor() {return "Aylor";} 
 
     load() {
