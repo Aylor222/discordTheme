@@ -14,7 +14,7 @@ class customBackground {
     		return;
        	var parent = $(".typeWindows-1za-n7");
     	var className = "customBackground_changeBg winButtonMinMax-PBQ2gm winButton-iRh8-Z flexCenter-3_1bcw flex-1O1GKY justifyCenter-3D2jYp alignCenter-1dQNNs da-winButtonMinMax da-winButton da-flexCenter da-flex da-justifyCenter da-alignCenter";
-		var element = $('<div id="customBackground_changeBgBtn" class="' + className + '" onclick="bdplugins.custom_background.plugin.changebackground()"></div>');
+		var element = $('<div id="customBackground_changeBgBtn" class="' + className + '" onclick="bdplugins.CustomBackground.plugin.changeBackground()"></div>');
     	parent.append(element);
     }
 
@@ -36,7 +36,7 @@ class customBackground {
 
     getName() {return "CustomBackground";} 
     getDescription() {return "Random Background Image";} 
-    getVersion() {return "1.0.0";} 
+    getVersion() {return "1.0.1";} 
     getAuthor() {return "Aylor";} 
 
     load() {
