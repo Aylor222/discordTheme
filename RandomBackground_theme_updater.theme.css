@@ -1,0 +1,9 @@
+//META{"name":"Random Theme","description":"Random background theme","author":"Tiago (Aylor)","version":"2.0.0"}*//
+
+
+@import url("https://aylor222.github.io/discordTheme/RandomBackground_theme_core.css");
+
+ :root { 
+    --main-color: #0097B2;
+    --main-colorHalf: rgba(0, 151, 178, 0.5);
+ }
