@@ -81,7 +81,6 @@ class customBackground {
                 if(regex.test(file.toString()))
                     this.availableImages.push(directory + file);
             });
-            console.log(this.availableImages);
             // Clock change background every x minutes
             this.changeBackground();
         });
