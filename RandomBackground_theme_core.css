@@ -198,6 +198,7 @@
     background-repeat: no-repeat;
     background-position: center;
     filter: invert(100%);
+    display: none;
 }
 .buttons-3JBrkn.da-buttons * {
     background-color: transparent;
