@@ -5,6 +5,7 @@ class customBackground {
         this.fs = require('fs');
 
         this.availableImages = [];
+        this.currentImage = null;
         this.cooldown = 300000;
         this.clock;
         this.initialized = false;
@@ -22,10 +23,19 @@ class customBackground {
     addButtonChangeBackground() {
     	if($("#customBackground_changeBgBtn").length)
     		return;
-       	var parent = $(".typeWindows-1za-n7");
-    	var className = "customBackground_changeBg winButtonMinMax-PBQ2gm winButton-iRh8-Z flexCenter-3_1bcw flex-1O1GKY justifyCenter-3D2jYp alignCenter-1dQNNs da-winButtonMinMax da-winButton da-flexCenter da-flex da-justifyCenter da-alignCenter";
-		var element = $(`<div id="customBackground_changeBgBtn" class="${className}" onclick="bdplugins.CustomBackground.plugin.changeBackground()"></div>`);
-    	parent.append(element);
+        const parent = $(".typeWindows-1za-n7");
+        const className = "customBackground_changeBg winButtonMinMax-PBQ2gm winButton-iRh8-Z flexCenter-3_1bcw flex-1O1GKY justifyCenter-3D2jYp alignCenter-1dQNNs da-winButtonMinMax da-winButton da-flexCenter da-flex da-justifyCenter da-alignCenter";
+        const element = $(`<div id="customBackground_changeBgBtn" class="${className}" onclick="BdApi.getPlugin(\'CustomBackground\').changeBackground()"></div>`);
+        parent.append(element);
+    }
+
+    addButtonSend() {
+        if($("#customBackground_sendBtn").length)
+            return;
+        const parent = $(".buttons-3JBrkn");
+        const className = "button-318s1X icon-3D60ES";
+        const element = $(`<div class="buttonContainer-28fw2U da-buttonContainer"><button class="buttonContainer-28fw2U da-buttonContainer"><div id="customBackground_sendBtn" class="${className}" onclick=""></div></button></div>`);
+        parent.prepend(element);
     }
 
     changeBackground() {
@@ -34,16 +44,21 @@ class customBackground {
         this.clock = setInterval(function(){
             that.changeBackground();
         }, this.cooldown);
-        this.fs.readFile(this.availableImages[Math.floor(Math.random()*this.availableImages.length)], function(err, data) {
-            var base64data = new Buffer(data).toString('base64');
-            $("#app-mount").css("background-image",`url(data:image/png;base64,${base64data})`);
-        });
+        this.currentImage = this.availableImages[Math.floor(Math.random()*this.availableImages.length)];
+        this.showCurrentImage();
     }
 
     getName() {return "CustomBackground";} 
     getDescription() {return "Random Background Image";} 
-    getVersion() {return "1.0.1";} 
+    getVersion() {return "1.1.0";} 
     getAuthor() {return "Aylor";} 
+
+    initEvents() {
+        $("body").on("DOMSubtreeModified", ".chat-3bRxxu", function() {
+            BdApi.getPlugin("CustomBackground").addButtonSend();
+        });
+        
+    }
 
     load() {
     } 
@@ -73,16 +88,38 @@ class customBackground {
     }
 
     loadImages(directory) {
-        this.fs.readdir(directory, (err, files) => {
-        	this.availableImages = [];
-            files.forEach(file => {
+        const { resolve } = require('path');
+        const { readdir } = require('fs').promises;
 
+        async function* getFiles(dir) {
+            const dirents = await readdir(dir, { withFileTypes: true });
+            for (const dirent of dirents) {
+                const res = resolve(dir, dirent.name);
+                if (dirent.isDirectory())
+                    yield* getFiles(res);
+                else
+                    yield res;
+            }
+        }
+
+        var that = this;
+        (async () => {
+            for await (const f of getFiles(directory)) {
+                console.log(f);
                 var regex = (new RegExp(`${this.filesFormatAuthorized.join('|')}$`, 'g'));
-                if(regex.test(file.toString()))
-                    this.availableImages.push(directory + file);
-            });
+                if(regex.test(f.toString()))
+                    that.availableImages.push(f);
+            }
             // Clock change background every x minutes
             this.changeBackground();
+        })();
+    }
+
+
+    showCurrentImage() {
+        this.fs.readFile(this.currentImage, function(err, data) {
+            var base64data = new Buffer(data).toString('base64');
+            $("#app-mount").css("background-image",`url(data:image/png;base64,${base64data})`);
         });
     }
 
@@ -92,10 +129,11 @@ class customBackground {
 
             // Load existing img from folder, then start a clock to change the background every x minutes
             this.loadDirectory();
+            this.initEvents();
         }
         var that = this;
         setTimeout(function() { // Timeout to let the page load.
-        	that.addButtonChangeBackground();
+            that.addButtonChangeBackground();
         }, 2000);
     } 
     stop() {} 
