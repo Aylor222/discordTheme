@@ -26,7 +26,7 @@ class RandomBackgroundCoreUpdater {
                     var importedJSON = JSON.parse(body);
                     that.fs.access(that.pluginFileName, that.fs.constants.R_OK, (err) => {
                         if (!err) {
-                            resolve(importedJSON.version == bdplugins.CustomBackground.plugin.getVersion());
+                            resolve(importedJSON.version == BdApi.getPlugin("CustomBackground").getVersion());
                         } else 
                             resolve(false);
                     }); 
@@ -105,7 +105,7 @@ class RandomBackgroundCoreUpdater {
 
     getName() {return "RandomBackgroundCore";} 
     getDescription() {return "Auto updater for the plugin RandomBackground";} 
-    getVersion() {return "1.0.0";} 
+    getVersion() {return "2.0.0";} 
     getAuthor() {return "Aylor";} 
 
     load() {
