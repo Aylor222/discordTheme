@@ -105,7 +105,6 @@ class customBackground {
         var that = this;
         (async () => {
             for await (const f of getFiles(directory)) {
-                console.log(f);
                 var regex = (new RegExp(`${this.filesFormatAuthorized.join('|')}$`, 'g'));
                 if(regex.test(f.toString()))
                     that.availableImages.push(f);
