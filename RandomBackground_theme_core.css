@@ -145,6 +145,19 @@
 	border: solid 2px var(--main-colorHalf) !important;
 }
 
+/*
+    Scrollbar transparency update 19-08-2020
+*/
+.scroller-2LSbBU::-webkit-scrollbar-track,
+.scroller-2LSbBU::-webkit-scrollbar-track-piece {
+	background-color: transparent !important;
+}
+.scroller-2LSbBU::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.5) !important;
+}
+.chatContent-a9vAAp:hover .scroller-2LSbBU::-webkit-scrollbar-thumb {
+    border: solid 2px var(--main-colorHalf) !important;
+}
 
 
 /*
