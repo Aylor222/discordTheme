@@ -1,2 +1,2 @@
 # discordTheme
-A Discord theme that allow to get a random background image.
+A Discord theme and plugin that display a random image or video in the background.
