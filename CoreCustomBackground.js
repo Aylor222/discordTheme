@@ -224,8 +224,12 @@ var CoreCustomBackground = class {
                 vidElement.addEventListener("loadedmetadata", (event) => {
                     let duration = !isNaN(vidElement.duration) ? vidElement.duration : 300;
                     BdApi.Plugins.get("CustomBackground").instance.ccb.clock_VID = setInterval(function(){
-                        if(BdApi.Plugins.get("CustomBackground").instance.ccb.cooldown_VID <= 0)
-                            BdApi.Plugins.get("CustomBackground").instance.ccb.changeBackground_VID();
+                        if($("#customBackground_contentVid_activate").prop("checked")) {
+                           if (BdApi.Plugins.get("CustomBackground").instance.ccb.cooldown_VID <= 0)
+                                BdApi.Plugins.get("CustomBackground").instance.ccb.changeBackground_VID();
+                        } else {
+                            BdApi.Plugins.get("CustomBackground").instance.ccb.disable_VID();
+                        }
                     }, duration * 1000);
                 });
 
