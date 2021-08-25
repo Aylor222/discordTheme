@@ -29,6 +29,7 @@ var CoreCustomBackground = class {
             filesFormatAuthorized_IMG: [
                     ".jpg",
                     ".jpeg",
+                    ".webp",
                     ".bmp",
                     ".tif",
                     ".gif",
