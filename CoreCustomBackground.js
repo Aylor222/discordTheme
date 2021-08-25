@@ -192,6 +192,7 @@ var CoreCustomBackground = class {
      * Display in background the current image in memory.
      */
      showCurrentImage() {
+         this.addButtonShowMenu();
          this.plugin.readFile(this.currentImage, "base64", function(base64data) {
             $("#app-mount").css("background-image",`url(data:image/png;base64,${base64data})`);
         });
@@ -201,6 +202,7 @@ var CoreCustomBackground = class {
      * Display in background the current video in memory.
      */
      showCurrentVideo() {
+        this.addButtonShowMenu();
         this.plugin.readFile(this.currentVideo, "raw", function(blob) {
             let url = window.URL.createObjectURL(blob);
             setTimeout(() => {
