@@ -18,6 +18,7 @@
 .layers-1YQhyW,
 .layer-86YKbF,
 .sidebar-1tnWFu,
+.app-2CXKsg,
 .base-2jDfDU,
 .standardSidebarView-E9Pc3j,
 .channelTextArea-1FufC0,
@@ -29,6 +30,7 @@
 .chat-3bRxxu form,
 .content-yTz4x3,
 .container-1r6BKw,
+.wrapper-1_HaEi,
 .flex-spacer,
 .bg-h5JY_x,
 .searchBar-3dMhjb,
@@ -132,6 +134,7 @@
 .markup-2BOw-j code,
 .emojiPicker-3m1S-j,
 .button-1EGGcP,
+.typeWindows-2-g3UY,
 #bda-qem-twitch-container,
 #bda-qem-favourite-container,
 .channels-Ie2l6A,
@@ -199,6 +202,10 @@
 }
 .chatContent-a9vAAp:hover .scroller-2LSbBU::-webkit-scrollbar-thumb {
     border: solid 2px var(--main-colorHalf) !important;
+}
+
+.scroller-kQBbkU {
+	opacity: 0.5;
 }
 
 
