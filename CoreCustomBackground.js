@@ -53,7 +53,7 @@ var CoreCustomBackground = class {
     	if($("#customBackground_changeBgBtn").length)
     		return;
         const parent = $(".typeWindows-2-g3UY");
-        const className = "customBackground_menu winButtonMinMax-PBQ2gm winButton-iRh8-Z flexCenter-3_1bcw flex-1O1GKY justifyCenter-3D2jYp alignCenter-1dQNNs da-winButtonMinMax da-winButton da-flexCenter da-flex da-justifyCenter da-alignCenter";
+        const className = "customBackground_menu winButtonMinMax-3RsPUg winButton-3UMjdg flexCenter-1Mwsxg flex-3BkGQD justifyCenter-rrurWZ alignCenter-14kD11";
         const element = $(`<div id="customBackground_changeBgBtn" class="${className}" onclick="BdApi.Plugins.get('CustomBackground').instance.ccb.showMenu()"></div>`);
         parent.append(element);
     }
