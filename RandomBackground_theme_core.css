@@ -229,13 +229,13 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 }
-.content-1U25dZ,
+.container-2o3qEW .content-1U25dZ,
 .container-2o3qEW .container-q97qHp {
 	visibility: hidden;
 	padding-top: 0;
 	height: auto;
 }
-.container-2o3qEW:hover .content-1U25dZ,
+.container-2o3qEW:hover .container-2o3qEW .content-1U25dZ,
 .container-2o3qEW:hover .container-2o3qEW .container-q97qHp {
 	padding-top: initial;
 	height: initial;
