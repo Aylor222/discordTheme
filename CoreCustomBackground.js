@@ -131,14 +131,13 @@ var CoreCustomBackground = class {
      loadFiles(that, arrayName, directory, filesFormatAuthorized, callback) {
         that[arrayName] = [];
 
-        const { resolve } = require('path'),
-              { readdir } = require('fs').promises;
+        const { resolve } = require('path');
 
         async function* getFiles(dir) {
-            const dirents = await readdir(dir, { withFileTypes: true });
+            const dirents = [...that.fs.readdirSync(dir, { withFileTypes: true })];
             for (const dirent of dirents) {
                 const res = resolve(dir, dirent.name);
-                if (dirent.isDirectory())
+                if (dirent[Object.getOwnPropertySymbols(dirent)[0]]  == 2) // isDirectory
                     yield* getFiles(res);
                 else
                     yield res;
@@ -203,7 +202,7 @@ var CoreCustomBackground = class {
      */
      showCurrentVideo() {
         this.addButtonShowMenu();
-        this.plugin.readFile(this.currentVideo, "raw", function(blob) {
+        this.plugin.readFile(this.currentVideo, "utf8", function(blob) {
             let url = window.URL.createObjectURL(blob);
             setTimeout(() => {
                 URL.revokeObjectURL(blob);
@@ -322,6 +321,11 @@ var CoreCustomBackground = class {
                 this.startClock();
             });
         });
+
+        // Refresh the button every hour in case Discord update the page and removes it.
+        setInterval(() => {
+            that.addButtonShowMenu(); 
+        }, 1000 * 60 * 60);
     }
 
     startClock() {
