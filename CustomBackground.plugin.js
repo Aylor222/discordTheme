@@ -112,10 +112,11 @@ class CustomBackground {
      */
     readFile(filePath, returnType, callback) {
         const that = this;
-        this.fs.readFile(filePath, function(err, data) {
+        this.fs.readFile(filePath, {encoding: returnType}, function(err, data) {
+            console.log(returnType);
             try {
                 if(returnType == "base64")
-                    callback(new that.Buffer.from(data).toString('base64'));
+                    callback(data);
                 else
                     callback(new Blob([data]));
             } catch (err) {
