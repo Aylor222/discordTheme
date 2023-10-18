@@ -30,6 +30,7 @@
 .header-39GIC8,
 .channels-Ie2l6A,
 .chat-3bRxxu form,
+.chatContent-2O4SXb,
 .content-yTz4x3,
 .container-1r6BKw,
 .container-YkUktl,
@@ -100,10 +101,11 @@
 .privateChannels-1nO12o,
 .theme-dark .card-7JP0BX,
 .chat-9g_3Xj,
-.chatContent-2O4SXb,
 .channelTextArea-1deLlK,
 .members-2y1nVj,
 .member-2iQhp7,
+.interactive-26HRN_,
+.interactive-iyXY_x,
 .container-2vWgD2,
 .container-2NLBJg,
 .container-1CH86i,
@@ -197,6 +199,15 @@ Fix the alignment of the chat box
     padding-left: 0px !important;
 }
 
+/*
+Darken and fix the margin of the top app bar.
+*/
+.typeWindows-3ILlhq {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    margin-top: 0;
+    padding-top: 4px;
+}
+
 
 /*
 	ScrollBar
@@ -238,7 +249,7 @@ Fix the alignment of the chat box
 	Guild Member 
 */
 .membersWrap-3NUR2t, /*deprecated ?*/
-.container-2vWgD2, {
+.container-2vWgD2 {
     position: relative;
     left: 176px;
     animation-name: moveMembersOut;
@@ -247,7 +258,7 @@ Fix the alignment of the chat box
     animation-timing-function: ease-out;
 }
 
-.container-2vWgD2:hover ..container-2vWgD2 {
+.container-2vWgD2:hover {
     animation-name: moveMembersIn;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
