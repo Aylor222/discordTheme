@@ -99,6 +99,15 @@
 .channelTextArea-rNsIhG,
 .privateChannels-1nO12o,
 .theme-dark .card-7JP0BX,
+.chat-9g_3Xj,
+.chatContent-2O4SXb,
+.channelTextArea-1deLlK,
+.members-2y1nVj,
+.member-2iQhp7,
+.container-2vWgD2,
+.container-2NLBJg,
+.container-1CH86i,
+.button-2gNyE9.buttonColor-1PCuWq, .button-2gNyE9 .buttonColor-1PCuWq,
 .users-i_3-kL,
 .total-3tKGEB,
 .button-1YfofB.buttonColor-7qQbGO,
@@ -228,14 +237,17 @@ Fix the alignment of the chat box
 /*
 	Guild Member 
 */
-.membersWrap-3NUR2t {
+.membersWrap-3NUR2t, /*deprecated ?*/
+.container-2vWgD2, {
+    position: relative;
     left: 176px;
     animation-name: moveMembersOut;
     animation-duration: 0.3s;
     animation-fill-mode: both;
     animation-timing-function: ease-out;
 }
-.container-2o3qEW:hover .membersWrap-3NUR2t {
+
+.container-2vWgD2:hover ..container-2vWgD2 {
     animation-name: moveMembersIn;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
