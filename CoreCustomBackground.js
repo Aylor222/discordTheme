@@ -53,7 +53,7 @@ var CoreCustomBackground = class {
     	if($("#customBackground_changeBgBtn").length)
     		return;
         const parent = $(".typeWindows-3ILlhq");
-        const className = "customBackground_menu winButtonMinMax-3RsPUg winButton-3UMjdg flexCenter-1Mwsxg flex-3BkGQD justifyCenter-rrurWZ alignCenter-14kD11";
+        const className = "customBackground_menu winButtonMinMax-nT2Irc winButton-3SigSb";
         const element = $(`<div id="customBackground_changeBgBtn" class="${className}" onclick="BdApi.Plugins.get('CustomBackground').instance.ccb.showMenu()"></div>`);
         parent.append(element);
     }
